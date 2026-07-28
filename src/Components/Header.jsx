@@ -5,12 +5,13 @@ const Header = () => {
   return (
     <div className="bg-black text-white">
       <Container>
-        <div className="flex justify-between">
-          <div>
-
-          </div>
-          <p className="text-sm">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!<span>ShopNow</span></p>
-          <select name="" id="" className='bg-black text-white'>
+        <div className="flex justify-between items-center">
+          <div />
+          <p className="text-sm space-x-2">
+            <span>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</span>
+            <span className="border-b">ShopNow</span>
+          </p>
+          <select name="" id="" className='bg-black text-white text-sm'>
             <option value="">English</option>
             <option value="">Bangla</option>
             <option value="">spanish</option>
