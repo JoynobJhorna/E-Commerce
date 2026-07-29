@@ -10,6 +10,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 
 const NavBar = () => {
   return (
+    <div className="border-b">
     <Container>
 
 
@@ -39,6 +40,7 @@ const NavBar = () => {
         </div>
       </div>
     </Container>
+    </div>
   )
 }
 
