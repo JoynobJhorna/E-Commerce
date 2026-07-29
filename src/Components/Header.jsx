@@ -6,7 +6,7 @@ const Header = () => {
     <div className="bg-black text-white">
       <Container>
         <div className="flex justify-between items-center">
-          <div />
+          <div/>
           <p className="text-sm space-x-2">
             <span>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</span>
             <span className="border-b">ShopNow</span>
