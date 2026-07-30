@@ -11,11 +11,20 @@ import 'swiper/css/pagination';
 // import './styles.css';
 import { Pagination } from 'swiper/modules';
 
- 
-
+const paginationStyles = {
+    '--swiper-pagination-color': '#DB4444',
+    '--swiper-pagination-bullet-size': '14px',
+    '--swiper-pagination-bullet-width': '14px',
+    '--swiper-pagination-bullet-height': '14px',
+    '--swiper-pagination-bullet-border-radius': '9999px',
+    '--swiper-pagination-bullet-inactive-color': '#7f7f7f',
+    '--swiper-pagination-bullet-inactive-opacity': '1',
+    '--swiper-pagination-bullet-opacity': '1',
+    '--swiper-pagination-bullet-horizontal-gap': '6px',
+};
 
 const Banner = () => {
-  
+    
  
    
     return (
@@ -41,6 +50,7 @@ const Banner = () => {
                             pagination={{ clickable: true }}
                             modules={[Pagination]}
                             className="mySwiper"
+                            style={paginationStyles}
                         >
                             <SwiperSlide><img src={BannerImg} alt="BannerImg" className="h-86 w-full rounded-lg object-cover" /></SwiperSlide>
                             <SwiperSlide><img src={BannerImg} alt="BannerImg" className="h-86 w-full rounded-lg object-cover" /></SwiperSlide>
