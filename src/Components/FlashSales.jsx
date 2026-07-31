@@ -3,6 +3,7 @@ import Container from './Container'
 import SecHead from './SecHead'
 import { countDownDateAndTime } from 'countdown-date-time';     
 import CountDown from './CountDown';
+import Card from './Card';
 
 
 const FlashSales = () => {
@@ -44,6 +45,10 @@ const heading="Flash Sales";
                 
                 />
                 </div>
+                <div>
+                    <Card/>
+                </div>
+                
               
             </div>
         </Container>
