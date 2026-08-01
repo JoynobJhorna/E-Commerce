@@ -11,6 +11,7 @@
   --font-inter: "Inter", sans-serif;
   --font-poppins: "Poppins", sans-serif;
   --color-primary :#EF4444;
+  --color-secondary :#F5F5F5
   
   }
 
@@ -31,4 +32,12 @@
   background-color: #DB4444;
   border: 2px solid white;
   box-sizing: border-box;
+}
+.CategoriesItems:hover .icon svg g path {
+  stroke: white;
+  
+}
+.CategoriesItems:hover .icon svg g line {
+  stroke: white;
+  
 }

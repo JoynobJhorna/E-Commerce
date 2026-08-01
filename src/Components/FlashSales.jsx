@@ -182,7 +182,7 @@ function SamplePrevArrow(props) {
                 
             
                  <Button className='mx-auto block mt-10'>View All Products</Button>
-        <div className=' border-b border-secondary mt-15 mb-20'></div>
+        <div className=' border-b border-[#3e393949] mt-15 mb-20'></div>
       </Container>
     </div>
                 
