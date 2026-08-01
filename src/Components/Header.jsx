@@ -3,7 +3,7 @@ import Container from './Container'
 
 const Header = () => {
   return (
-    <div className="bg-black text-white">
+    <div className="bg-black text-white py-3.75">
       <Container>
         <div className="flex justify-between items-center">
           <div/>
@@ -15,6 +15,7 @@ const Header = () => {
             <option value="">English</option>
             <option value="">Bangla</option>
             <option value="">spanish</option>
+            <option value="">japanese</option>
 
           </select>
         </div>
