@@ -4,6 +4,7 @@ import SecHead from './SecHead'
 import { countDownDateAndTime } from 'countdown-date-time';
 import CountDown from './CountDown';
 import Card from './Card';
+import Button from './Button';
 import GmConsole from "../assets/GmConsole.png"
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -179,13 +180,14 @@ function SamplePrevArrow(props) {
                     </SlickSlider>
                 </div>
                 
-            </Container>
-
-        </div>
-        
-    
-  )
-}
+            
+                 <Button className='mx-auto block mt-10'>View All Products</Button>
+        <div className=' border-b border-secondary mt-15 mb-20'></div>
+      </Container>
+    </div>
+                
+);
+};
 
 export default FlashSales
 
