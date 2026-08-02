@@ -119,6 +119,8 @@ const Categories = () => {
             
           </SlickSlider>
         </div>
+        
+         <div className=' border-b border-[#3e393949] mt-15 mb-20'></div>
       </Container>
     </div>
   )
