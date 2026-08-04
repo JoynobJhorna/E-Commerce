@@ -37,8 +37,8 @@ const Card = ({imgConsle,percentage,title,price,disprice,review}) => {
       <div className='gap-2'>
         <h3 className="text-[16px] font-medium mt-4 mb-2">{title}</h3>
         <div className="flex gap-3 ">
-          <h4 className="font-medium text-primary">${price}</h4>
-          <h4 className="line-through text-[#0000005e]">${disprice}</h4>
+          <h4 className="font-medium text-primary">{price}</h4>
+          <h4 className="line-through text-[#0000005e]">{disprice}</h4>
 
 
         </div>

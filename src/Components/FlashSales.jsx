@@ -109,12 +109,24 @@ function SamplePrevArrow(props) {
 
                         />
                     </div>
-                    <SlickSlider {...settings}>
+                    <div className='relative'>
+                        <SlickSlider {...settings}>
+                            <div>
+
+                                <Card
+                                    imgConsle={GmConsole}
+                                    percentage="-40%"
+                                    title="HAVIT HV-G92 Gamepad"
+                                    price="120"
+                                    disprice="160"
+                                    review="88"
+                                />
+                            </div>
                         <div>
 
                             <Card
                                 imgConsle={GmConsole}
-                                percentage={-40}
+                                percentage="-40%"
                                 title="HAVIT HV-G92 Gamepad"
                                 price="120"
                                 disprice="160"
@@ -125,7 +137,7 @@ function SamplePrevArrow(props) {
 
                             <Card
                                 imgConsle={GmConsole}
-                                percentage={-40}
+                                percentage="-40%"
                                 title="HAVIT HV-G92 Gamepad"
                                 price="120"
                                 disprice="160"
@@ -136,7 +148,7 @@ function SamplePrevArrow(props) {
 
                             <Card
                                 imgConsle={GmConsole}
-                                percentage={-40}
+                                percentage="-40%"
                                 title="HAVIT HV-G92 Gamepad"
                                 price="120"
                                 disprice="160"
@@ -147,7 +159,7 @@ function SamplePrevArrow(props) {
 
                             <Card
                                 imgConsle={GmConsole}
-                                percentage={-40}
+                                percentage="-40%"
                                 title="HAVIT HV-G92 Gamepad"
                                 price="120"
                                 disprice="160"
@@ -158,18 +170,7 @@ function SamplePrevArrow(props) {
 
                             <Card
                                 imgConsle={GmConsole}
-                                percentage={-40}
-                                title="HAVIT HV-G92 Gamepad"
-                                price="120"
-                                disprice="160"
-                                review="88"
-                            />
-                        </div>
-                        <div>
-
-                            <Card
-                                imgConsle={GmConsole}
-                                percentage={-40}
+                                percentage="-40%"
                                 title="HAVIT HV-G92 Gamepad"
                                 price="120"
                                 disprice="160"
@@ -177,7 +178,8 @@ function SamplePrevArrow(props) {
                             />
                         </div>
 
-                    </SlickSlider>
+                        </SlickSlider>
+                    </div>
                 </div>
                 
             

@@ -12,7 +12,7 @@ function SampleNextArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className="w-11.5 h-11.5 rounded-full absolute -top-8 right-7 bg-[#f5f5f5] flex items-center justify-center cursor-pointer"
+      className="w-11.5 h-11.5 rounded-full absolute -top-8 right-7 bg-secondary flex items-center justify-center cursor-pointer"
       onClick={onClick}
     >
       <GoArrowRight className="text-2xl text-black" />
@@ -24,7 +24,7 @@ function SamplePrevArrow(props) {
   const { onClick } = props;
   return (
     <div
-      className="w-11.5 h-11.5 rounded-full absolute -top-8 right-20 bg-[#f5f5f5] flex items-center justify-center cursor-pointer"
+      className="w-11.5 h-11.5 rounded-full absolute -top-8 right-20 bg-secondary flex items-center justify-center cursor-pointer"
       onClick={onClick}
     >
       <GoArrowLeft className="text-2xl text-black" />

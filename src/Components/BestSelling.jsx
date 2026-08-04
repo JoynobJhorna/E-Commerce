@@ -25,7 +25,7 @@ const BestSelling = () => {
         <div>
             <Card
             imgConsle={coat}
-
+          
             title="The north coat"
             price="$260"
             disprice="$360"
