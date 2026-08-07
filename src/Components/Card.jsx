@@ -6,16 +6,16 @@ import { FiEye } from "react-icons/fi";
 
 
 
-const Card = ({imgConsle,percentage,title,price,disprice,review}) => {
+const Card = ({imgConsle,percentage,title,price,disprice,rating,review}) => {
   return (
     <>
     <div className='mt-10 w-67.5 h-87.5 group '>
       
         
-        <div className="img-box relative overflow-hidden">
-          <span className=" absolute left-3 top-3 py-2  px-3 rounded-sm text-xs bg-primary text-white ">{percentage}</span>
-          <div>
-          <img  src={imgConsle} alt="" />
+        <div className="img-box relative overflow-hidden rounded-[10px] bg-secondary p-4">
+          <span className=" absolute left-3 top-3 py-2  px-3 rounded-sm text-xs bg-primary text-white ">{percentage}%</span>
+          <div className='flex items-center justify-center h-40'>
+          <img  src={imgConsle} alt="" className='h-full object-contain' />
         </div>
         <div className="absolute top-2 space-y-2 right-3">
             
@@ -43,7 +43,7 @@ const Card = ({imgConsle,percentage,title,price,disprice,review}) => {
 
         </div>
         <div className='flex mt-2'>
-          <Rate allowHalf defaultValue={5} />
+          <Rate allowHalf value={rating} />
           <h4 className="text-[#0000005e]">({review})</h4>
         </div>
 
