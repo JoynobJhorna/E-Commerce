@@ -7,6 +7,7 @@ import Paginate from './Paginate'
 
 const Shop = () => {
     const [Product, setProduct] = useState([])
+    const [itemsPerPage, setItemsPerPage] = useState(6)
 
     useEffect(() => {
         fetch('https://dummyjson.com/products')
@@ -28,10 +29,10 @@ const Shop = () => {
                     <div className='flex gap-4 items-center '>
                         <h3>Show :</h3>
                         <div>
-                    <select name="" id="" className='border-[#D9D9D9] border px-10 py-1'>
-                        <option value="6">6</option>
-                        <option value="9">9</option>
-                        <option value="12">12</option>
+                        <select name="" id="" className='border-[#D9D9D9] border px-10 py-1' value={itemsPerPage} onChange={e => setItemsPerPage(parseInt(e.target.value, 10))}>
+                        <option value={6}>6</option>
+                        <option value={9}>9</option>
+                        <option value={12}>12</option>
                     </select>
 
                         </div>
@@ -70,7 +71,7 @@ const Shop = () => {
                 </div>
 
                 </div>
-                <Paginate/>
+                <Paginate  itemsPerPage={6} />
             </Container>
         </div>
     )
