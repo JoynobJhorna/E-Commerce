@@ -19,6 +19,21 @@ const Shop = () => {
             .catch(() => setProduct([]))
     }, [])
 
+    // Exclude these product terms (case-insensitive, partial match)
+    const excludedTerms = [
+        'Essence Mascara Lash Princess',
+        'Eyeshadow Palette with Mirror',
+        'Powder Canister',
+        'Red Lipstick',
+        'Red Nail Polish',
+        'Calvin Klein CK One'
+    ]
+    const excludedTermsLower = excludedTerms.map(t => t.toLowerCase().trim())
+    const filteredProducts = Product.filter(p => {
+        const title = String(p.title || '').toLowerCase().trim()
+        return !excludedTermsLower.some(term => title.includes(term))
+    })
+
     return (
         <div className='py-20'>
             <Container>
@@ -29,7 +44,7 @@ const Shop = () => {
                     <div className='flex gap-4 items-center '>
                         <h3>Show :</h3>
                         <div>
-                        <select name="" id="" className='border-[#D9D9D9] border px-10 py-1' value={itemsPerPage} onChange={e => setItemsPerPage(parseInt(e.target.value, 10))}>
+                        <select name="" id="" className='border-[#D9D9D9] cursor-pointer border px-10 py-1' value={itemsPerPage} onChange={e => setItemsPerPage((e.target.value))}>
                         <option value={6}>6</option>
                         <option value={9}>9</option>
                         <option value={12}>12</option>
@@ -54,24 +69,28 @@ const Shop = () => {
                     </ul>
                 </div>
                 <div className='w-[80%]'>
-                    <div className='flex flex-wrap justify-between gap-y-10'>
-                        {Product.map((item) => (
-                            <Card
-                                key={item.id}
-                                imgConsle={item.thumbnail}
-                                percentage={item.discountPercentage}
-                                title={item.title}
-                                price={item.price}
-                                disprice={(item.price - (item.price * (item.discountPercentage / 100))).toFixed(2) }
-                                review={item.reviews?.length || 0}
-                                rating={item.rating}
-                            />
+                    {/* <div className='flex flex-wrap justify-between gap-y-10'>
+                        {filteredProducts
+                            .slice(0, itemsPerPage)
+                            .map((item) => (
+                                <Card
+                                    key={item.id}
+                                    imgConsle={item.thumbnail}
+                                    percentage={item.discountPercentage}
+                                    title={item.title}
+                                    price={item.price}
+                                    disprice={(item.price - (item.price * (item.discountPercentage / 100))).toFixed(2) }
+                                    review={item.reviews?.length || 0}
+                                    rating={item.rating}
+                                />
                         ))}
+                    </div> */}
+                    <div className='w-full'>
+                        <Paginate itemsPerPage={itemsPerPage} Product={filteredProducts} />
                     </div>
                 </div>
 
                 </div>
-                <Paginate  itemsPerPage={6} />
             </Container>
         </div>
     )

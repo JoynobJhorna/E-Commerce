@@ -1,26 +1,31 @@
 import React, { useEffect, useState } from 'react';
+import Card from './Card'
 
 import ReactPaginateModule from 'react-paginate';
 const ReactPaginate = ReactPaginateModule?.default ?? ReactPaginateModule
 
 
-const Paginate = ({ itemsPerPage = 4, items: propItems }) => {
-  const items = propItems ?? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
-
+const Paginate = ({ itemsPerPage ,Product}) => {
+  const items =  Product
 function Items({ currentItems }) {
   return (
-    <>
+    <div className='flex flex-wrap justify-between gap-y-10'>
       {currentItems &&
         currentItems.map((item) => (
-          <div key={item?.id ?? item}>
-            {typeof item === 'object' ? (
-              <h3>{item.title ?? item.name ?? `Item ${item?.id ?? ''}`}</h3>
-            ) : (
-              <h3>Item #{item}</h3>
-            )}
+          <div key={item.id}>
+            <Card
+              key={item.id}
+              imgConsle={item.thumbnail}
+              percentage={item.discountPercentage}
+              title={item.title}
+              price={item.price}
+              disprice={(item.price - (item.price * (item.discountPercentage / 100))).toFixed(2)}
+              review={item.reviews?.length || 0}
+              rating={item.rating}
+            />
           </div>
         ))}
-    </>
+    </div>
   );
 }
  const [itemOffset, setItemOffset] = useState(0);
@@ -46,12 +51,17 @@ function Items({ currentItems }) {
       <Items currentItems={currentItems} />
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=""
+        previousLabel=""
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
         renderOnZeroPageCount={null}
+        containerClassName="flex justify-start w-full mt-6 gap-2"
+        pageClassName="inline-block"
+        pageLinkClassName="px-6.25 py-0.5  cursor-pointer bg-black text-white "
+        // activeClassName="bg-white text-white"
+        // pageRangeDisplayed={6}
       />
     </>
   )
