@@ -4,36 +4,19 @@ import { IoIosArrowForward } from 'react-icons/io'
 import Card from './Card'
 import BreadCrump from './BreadCrump'
 import Paginate from './Paginate'
+import { Skeleton } from 'antd'
 
 const Shop = () => {
     const [Product, setProduct] = useState([])
     const [itemsPerPage, setItemsPerPage] = useState(6)
+    const [loading, setLoading ] = useState(false)
 
     useEffect(() => {
         fetch('https://dummyjson.com/products')
-            .then(res => res.json())
-            .then((data) => {
-                const products = Array.isArray(data?.products) ? data.products : []
-                setProduct(products)
-            })
-            .catch(() => setProduct([]))
+            .then((res) => res.json())
+            .then((data) => setProduct(Array.isArray(data.products) ? data.products : []))
+            .then (()=> setLoading(true) )
     }, [])
-
-    // Exclude these product terms (case-insensitive, partial match)
-    const excludedTerms = [
-        'Essence Mascara Lash Princess',
-        'Eyeshadow Palette with Mirror',
-        'Powder Canister',
-        'Red Lipstick',
-        'Red Nail Polish',
-        'Calvin Klein CK One'
-    ]
-    const excludedTermsLower = excludedTerms.map(t => t.toLowerCase().trim())
-    const filteredProducts = Product.filter(p => {
-        const title = String(p.title || '').toLowerCase().trim()
-        return !excludedTermsLower.some(term => title.includes(term))
-    })
-
     return (
         <div className='py-20'>
             <Container>
@@ -44,7 +27,7 @@ const Shop = () => {
                     <div className='flex gap-4 items-center '>
                         <h3>Show :</h3>
                         <div>
-                        <select name="" id="" className='border-[#D9D9D9] cursor-pointer border px-10 py-1' value={itemsPerPage} onChange={e => setItemsPerPage((e.target.value))}>
+                        <select name="" id="" className='border-[#D9D9D9] cursor-pointer border px-10 py-1' value={itemsPerPage} onChange={e => setItemsPerPage(Number(e.target.value))}>
                         <option value={6}>6</option>
                         <option value={9}>9</option>
                         <option value={12}>12</option>
@@ -86,7 +69,16 @@ const Shop = () => {
                         ))}
                     </div> */}
                     <div className='w-full'>
-                        <Paginate itemsPerPage={itemsPerPage} Product={filteredProducts} />
+                        {
+                            loading ?
+                            
+                            <><Skeleton/>
+                            <Skeleton/>
+                            <Skeleton/>
+                            <Skeleton/></>
+                            :
+                        <Paginate itemsPerPage={itemsPerPage} Product={Product}/>
+                         } 
                     </div>
                 </div>
 

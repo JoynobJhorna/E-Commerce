@@ -4,6 +4,7 @@ import Logo from "../assets/Logo.png"
 import { CiHeart } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { NavLink } from 'react-router';
 
 
 
@@ -19,7 +20,7 @@ const NavBar = () => {
           <img src={Logo} alt="Logo" />
         </div>
         <ul className="flex gap-12 ">
-          <li>Home</li>
+          <li><NavLink to="/"end>Home</NavLink></li>
           <li>Contact</li>
           <li>About</li>
           <li>Sign Up</li>

@@ -1,5 +1,6 @@
 import React from 'react'
 import Container from './Container'
+import { NavLink } from 'react-router'
 
 const Header = () => {
   return (
@@ -9,7 +10,7 @@ const Header = () => {
           <div/>
           <p className="text-sm space-x-2">
             <span>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</span>
-            <span className="border-b">ShopNow</span>
+            <span className="border-b"><NavLink to="/shop">ShopNow</NavLink></span>
           </p>
           <select name="" id="" className='bg-black text-white text-sm'>
             <option value="">English</option>
