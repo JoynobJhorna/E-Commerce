@@ -5,18 +5,21 @@ import Card from './Card'
 import BreadCrump from './BreadCrump'
 import Paginate from './Paginate'
 import { Skeleton } from 'antd'
+import Item from 'antd/es/list/Item'
 
 const Shop = () => {
     const [Product, setProduct] = useState([])
     const [itemsPerPage, setItemsPerPage] = useState(6)
-    const [loading, setLoading ] = useState(false)
+    const [loading, setLoading ] = useState(true)
 
     useEffect(() => {
         fetch('https://dummyjson.com/products')
             .then((res) => res.json())
             .then((data) => setProduct(Array.isArray(data.products) ? data.products : []))
-            .then (()=> setLoading(true) )
+            .then (()=> setLoading(false) )
     }, [])
+
+    const uniqueCategories = [...new Set(Product.map ((item) => item.category))]
     return (
         <div className='py-20'>
             <Container>
@@ -41,14 +44,22 @@ const Shop = () => {
                 <div className='flex justify-between'>
                 <div className="w-[20%]   pr-4">
                     <ul className="pt-10 space-y-4">
-                        <li className="flex items-center gap-12.75">Woman’s Fashion<IoIosArrowForward /></li>
+                         {
+                            uniqueCategories.map((item)=>{
+                                return <li className="capitalize cursor-pointer">{item}</li>
+                             
+                            })
+                        }
+                        {/* <li className="flex items-center gap-12.75">Woman’s Fashion<IoIosArrowForward /></li>
                         <li className="flex items-center gap-18.5">Men’s Fashion<IoIosArrowForward /></li>
                         <li>Electronics</li>
                         <li>Home & Lifestyle</li>
                         <li>Medicine</li>
                         <li>Sports & Outdoor</li>
                         <li>Health & Beauty</li>
-                        <li>Groceries</li>
+                        <li>Groceries</li> */}
+
+                       
                     </ul>
                 </div>
                 <div className='w-[80%]'>

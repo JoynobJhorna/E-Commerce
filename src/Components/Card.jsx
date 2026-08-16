@@ -28,8 +28,10 @@ const Card = ({imgConsle,percentage,title,price,disprice,rating,review}) => {
           <FiEye  className='text-2xl'/>
           </div>
         </div>
-        <div>
-          <button className="text-white bg-black absolute -bottom-10 py-2 cursor-pointer group-hover:bottom-0 duration-390 ease-linear font-medium w-full">Add to card</button>
+        <div className="w-full">
+          {/* <button className="text-white bg-black absolute -bottom-10 py-2  cursor-pointer group-hover:bottom-0 duration-390 ease-linear font-medium ">Add to card</button> */}
+           <button className="text-white bg-black absolute -bottom-10 py-2 left-0 right-0 cursor-pointer group-hover:bottom-0 duration-390 ease-linear font-medium">Add to card</button>
+        
         </div>
         </div>
       
