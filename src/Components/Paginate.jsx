@@ -2,11 +2,14 @@ import React, { useEffect, useState } from 'react';
 import Card from './Card'
 
 import ReactPaginateModule from 'react-paginate';
+import { useSelector } from 'react-redux';
 const ReactPaginate = ReactPaginateModule?.default ?? ReactPaginateModule
 
+ 
 
-const Paginate = ({ itemsPerPage, Product }) => {
-  const items = Array.isArray(Product) ? Product : [];
+const Paginate = ({ itemsPerPage }) => {
+  const data = useSelector(state => state.products?.value || [])
+  const items = Array.isArray(data) ? data : [];
   const safeItemsPerPage = Number(itemsPerPage) || 6;
 
   function Items({ currentItems }) {

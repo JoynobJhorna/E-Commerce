@@ -6,20 +6,30 @@ import BreadCrump from './BreadCrump'
 import Paginate from './Paginate'
 import { Skeleton } from 'antd'
 import Item from 'antd/es/list/Item'
+import { useDispatch, useSelector } from 'react-redux'
+import { ProductReducers } from './Slices/ProductsSlice'
 
 const Shop = () => {
     const [Product, setProduct] = useState([])
     const [itemsPerPage, setItemsPerPage] = useState(6)
     const [loading, setLoading ] = useState(true)
 
+    const dispatch = useDispatch()
+    const data = useSelector(state => state.products?.value || [])
+
+
     useEffect(() => {
         fetch('https://dummyjson.com/products')
             .then((res) => res.json())
-            .then((data) => setProduct(Array.isArray(data.products) ? data.products : []))
-            .then (()=> setLoading(false) )
+            .then((data) => {
+              const products = Array.isArray(data.products) ? data.products : []
+              setProduct(products)
+              dispatch(ProductReducers(products))
+              setLoading(false)
+            })
     }, [])
 
-    const uniqueCategories = [...new Set(Product.map ((item) => item.category))]
+    const uniqueCategories = [...new Set(data.map ((item) => item.category))]
     return (
         <div className='py-20'>
             <Container>
@@ -88,7 +98,7 @@ const Shop = () => {
                             <Skeleton/>
                             <Skeleton/></>
                             :
-                        <Paginate itemsPerPage={itemsPerPage} Product={Product}/>
+                        <Paginate itemsPerPage={itemsPerPage}/>
                          } 
                     </div>
                 </div>
